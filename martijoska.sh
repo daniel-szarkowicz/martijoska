@@ -8,7 +8,7 @@ do
   echo "Deobfuscating $i"
 
   FLAG=`java -jar jd-cli.jar Class$i.class\
-    | awk -F '"' '/flag/ {print $2}'`
+    | awk -F '"' '/flag\{/ {print $2}'`
 
   if [ ! -z "${FLAG}" ]; then
     echo $FLAG
